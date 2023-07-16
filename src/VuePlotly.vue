@@ -40,6 +40,9 @@ export default {
     setGraph() {
       Plotly.newPlot(this.plotlyId, this.data, this.layout, this.config);
     },
+    toImage(args) {
+      Plotly.toImage(this.plotlyId, args);
+    },
   },
 };
 </script>
