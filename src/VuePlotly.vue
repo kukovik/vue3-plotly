@@ -41,7 +41,7 @@ export default {
       Plotly.newPlot(this.plotlyId, this.data, this.layout, this.config);
     },
     toImage(args) {
-      Plotly.toImage(this.plotlyId, args);
+      return Plotly.toImage(this.plotlyId, args);
     },
   },
 };
