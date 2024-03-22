@@ -20,9 +20,9 @@ export default {
   props: ['data', 'layout', 'config'],
 
   watch: {
-    data() { this.setGraph(); },
-    layout() { this.setGraph(); },
-    config() { this.setGraph(); },
+    data() { this.renewGraph(); },
+    layout() { this.renewGraph(); },
+    config() { this.renewGraph(); },
   },
 
   mounted() {
@@ -39,6 +39,12 @@ export default {
   methods: {
     setGraph() {
       Plotly.newPlot(this.plotlyId, this.data, this.layout, this.config);
+    },
+    renewGraph() {
+      Plotly.react(this.plotlyId, this.data, this.layout, this.config);
+    },
+    updateGraph(args) {
+      Plotly.update(args);
     },
     toImage(args) {
       return Plotly.toImage(this.plotlyId, args);
