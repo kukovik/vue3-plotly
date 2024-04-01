@@ -2,8 +2,6 @@ import { v4 } from 'uuid';
 import Plotly from 'plotly.js-dist';
 import { openBlock, createElementBlock } from 'vue';
 
-let timeOutFunctionId;
-
 var script = {
   name: 'VuePlotly',
 
@@ -23,14 +21,7 @@ var script = {
 
   mounted() {
     this.setGraph();
-    this.resizeObserver = new ResizeObserver(() => {
-      clearTimeout(timeOutFunctionId); // debounce the reset
-      timeOutFunctionId = setTimeout(this.setGraph, 100);
-    });
-    this.resizeObserver.observe(document.getElementById(this.plotlyId));
   },
-
-  beforeUnmount() { this.resizeObserver.disconnect(); },
 
   methods: {
     setGraph() {

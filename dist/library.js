@@ -4,8 +4,6 @@ var uuid = require('uuid');
 var Plotly = require('plotly.js-dist');
 var vue = require('vue');
 
-let timeOutFunctionId;
-
 var script = {
   name: 'VuePlotly',
 
@@ -25,14 +23,7 @@ var script = {
 
   mounted() {
     this.setGraph();
-    this.resizeObserver = new ResizeObserver(() => {
-      clearTimeout(timeOutFunctionId); // debounce the reset
-      timeOutFunctionId = setTimeout(this.setGraph, 100);
-    });
-    this.resizeObserver.observe(document.getElementById(this.plotlyId));
   },
-
-  beforeUnmount() { this.resizeObserver.disconnect(); },
 
   methods: {
     setGraph() {

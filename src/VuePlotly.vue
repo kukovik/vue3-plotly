@@ -6,8 +6,6 @@
 import { v4 as uuidv4 } from 'uuid';
 import Plotly from 'plotly.js-dist';
 
-let timeOutFunctionId;
-
 export default {
   name: 'VuePlotly',
 
@@ -27,14 +25,7 @@ export default {
 
   mounted() {
     this.setGraph();
-    this.resizeObserver = new ResizeObserver(() => {
-      clearTimeout(timeOutFunctionId); // debounce the reset
-      timeOutFunctionId = setTimeout(this.setGraph, 100);
-    });
-    this.resizeObserver.observe(document.getElementById(this.plotlyId));
   },
-
-  beforeUnmount() { this.resizeObserver.disconnect(); },
 
   methods: {
     setGraph() {

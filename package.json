@@ -1,6 +1,6 @@
 {
   "name": "vue3-plotly",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "description": "",
   "main": "dist/library.js",
   "module": "dist/library.mjs",
